@@ -95,27 +95,94 @@ Enhanced version with enterprise features.
 ### 3. `example_service.py`
 Demo client showing how services interact with the registry.
 
+### 4. Kubernetes/Minikube Deployment
+- **Dockerfile** - Container image for the registry
+- **k8s/** - Kubernetes manifests for deployment
+- **KUBERNETES.md** - Complete Kubernetes deployment guide
+- **deploy-minikube.sh** - Automated deployment script
+
 ## 🚀 Getting Started
 
-### Prerequisites
+### Option 1: Local Development (Recommended for Learning)
 
+#### Prerequisites
+
+Python 3.8 or higher
+
+#### Installation
+
+1. **Clone the repository:**
 ```bash
-pip install flask requests
+git clone https://github.com/ranjanr/ServiceRegistry.git
+cd ServiceRegistry
 ```
 
-### Running the Registry
-
-**Option 1: Basic Version**
+2. **Create a virtual environment:**
 ```bash
-python service_registry.py
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-**Option 2: Improved Version (Recommended)**
+3. **Install dependencies:**
 ```bash
-python service_registry_improved.py
+pip install -r requirements.txt
+```
+
+#### Running the Registry
+
+**Basic Version:**
+```bash
+python3 service_registry.py
+```
+
+**Improved Version (Recommended):**
+```bash
+python3 service_registry_improved.py
 ```
 
 The registry will start on `http://localhost:5001`
+
+### Option 2: Kubernetes/Minikube (Production-like Environment)
+
+#### Prerequisites
+
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+- Docker
+
+#### Quick Deploy
+
+```bash
+# One-command deployment
+./deploy-minikube.sh
+```
+
+This will:
+1. Start Minikube (if not running)
+2. Build Docker image
+3. Deploy registry and example services
+4. Show access URLs and test commands
+
+#### Manual Deploy
+
+```bash
+# Start Minikube
+minikube start
+
+# Build image
+eval $(minikube docker-env)
+docker build -t service-registry:latest .
+
+# Deploy
+kubectl apply -f k8s/registry-deployment.yaml
+kubectl apply -f k8s/example-service-deployment.yaml
+
+# Access
+minikube ip  # Get IP
+curl http://<MINIKUBE_IP>:30001/health
+```
+
+**See [KUBERNETES.md](KUBERNETES.md) for complete guide.**
 
 ### Testing with Example Services
 
