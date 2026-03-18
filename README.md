@@ -110,7 +110,12 @@ kubectl get virtualservice    # should show my-service
 kubectl get destinationrule   # should show my-service with ROUND_ROBIN
 ```
 
-### **Expected output**
+kubectl get pods              # both pods should show 2/2
+kubectl get virtualservice    # should show my-service
+kubectl get destinationrule   # should show my-service with ROUND_ROBIN
+```
+
+### Expected output
 ```
 NAME                          READY   STATUS    RESTARTS   AGE
 my-service-69b6bd9569-hz7hq   2/2     Running   0          18m
