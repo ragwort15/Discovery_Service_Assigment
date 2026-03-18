@@ -124,5 +124,3 @@ my-service-69b6bd9569-mvz6j   2/2     Running   0          18m
 
 
 
-
-
