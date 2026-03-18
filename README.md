@@ -68,7 +68,14 @@ Response: {'message': 'Hello from instance at port 8002!'}
 
  <img width="1227" height="861" alt="image" src="https://github.com/user-attachments/assets/afaf833b-db20-423e-8018-
   eb3a9b3bd5fd" />
-  <img width="1138" height="723" alt="image" src="https://github.com/user-attachments/assets/8d0d027a-1ff2-4d1c-959f-e3b8fe1cf0f5" />
+  
+<img width="1138" height="723" alt="image" src="https://github.com/user-attachments/assets/8d0d027a-1ff2-4d1c-959f-e3b8fe1cf0f5" />
+
+<img width="1144" height="855" alt="image" src="https://github.com/user-attachments/assets/f4e30823-49f8-41ea-8a72-cecdb12ee2e4" />
+
+<img width="1137" height="867" alt="image" src="https://github.com/user-attachments/assets/712967dd-a8fc-4100-a862-e26ec3025139" />
+
+
 
 
 
