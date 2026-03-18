@@ -137,5 +137,5 @@ The `2/2` confirms both the Python app and Envoy sidecar are running in each pod
 
 ---
 
-## Architecture Diagram
-![Architecture Diagram](architecture.png)
+
+
