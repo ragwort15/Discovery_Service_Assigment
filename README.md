@@ -78,7 +78,7 @@ Response: {'message': 'Hello from instance at port 8002!'}
 
 <img width="1416" height="853" alt="image" src="https://github.com/user-attachments/assets/94d56d11-3912-463a-9399-2f587cb523c6" />
 
-##Optional
+## Service Mesh with Istio
 <img width="1440" height="1524" alt="image" src="https://github.com/user-attachments/assets/d52fa61c-89db-4895-8d5f-fd5998b98e5c" />
 
 
