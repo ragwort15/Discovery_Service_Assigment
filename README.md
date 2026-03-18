@@ -80,9 +80,9 @@ Response: {'message': 'Hello from instance at port 8002!'}
 
 ## Service Mesh with Istio
 
-What is a Service Mesh?
+**What is a Service Mesh?**
 A service mesh is an infrastructure layer that handles service-to-service communication automatically — without changing any application code. Instead of your app managing traffic, security, and monitoring, the mesh handles it at the network level.
-How it works
+**How it works**
 Every pod gets an Envoy sidecar proxy injected automatically by Istio. All traffic flows through this proxy, giving you routing control, encryption, and observability for free.
 Client → Envoy sidecar → Istio control plane
                        → Pod 1 (Python app + Envoy)
@@ -92,25 +92,25 @@ Difference from the core project
 Core projectWith IstioRuns onLocal machineKubernetes2 instancesStarted manuallyManaged by KubernetesLoad balancingPython random.choice()Istio ROUND_ROBIN at network levelDiscoveryPython registry (port 5001)Kubernetes DNS + IstioSecurityNonemTLS between every pod automaticallyTraffic controlNoneVirtualService (50/50 split, retries, timeouts)MonitoringNoneEnvoy metrics on every requestCrash recoveryManual restartKubernetes restarts automatically
 Benefits achieved
 
-Traffic routing — VirtualService splits traffic 50/50 across both instances with automatic retries
+**Traffic routing** — VirtualService splits traffic 50/50 across both instances with automatic retries
 Security — mTLS encrypts all pod-to-pod communication automatically
 Observability — Envoy proxy collects metrics and traces on every request
 
-How to run
-Step 1 — Enable Istio sidecar injection:
+**How to run**
+_Step 1 — Enable Istio sidecar injection:_
 bashistioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
-Step 2 — Deploy to Kubernetes:
+_Step 2 — Deploy to Kubernetes:_
 bashkubectl apply -f k8s/my-service.yaml
-Step 3 — Apply Istio routing:
+_Step 3 — Apply Istio routing:_
 bashkubectl apply -f k8s/istio-routing.yaml
-Step 4 — Verify:
+_Step 4 — Verify:_
 bashkubectl get pods              # both pods should show 2/2
 kubectl get virtualservice    # should show my-service
 kubectl get destinationrule   # should show my-service with ROUND_ROBIN
 ```
 
-### Expected output
+### **Expected output**
 ```
 NAME                          READY   STATUS    RESTARTS   AGE
 my-service-69b6bd9569-hz7hq   2/2     Running   0          18m
