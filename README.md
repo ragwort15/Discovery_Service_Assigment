@@ -61,3 +61,7 @@ Response: {'message': 'Hello from instance at port 8002!'}
 3. Instances send heartbeats every 10 seconds to stay active
 4. Client queries the registry to discover all available instances
 5. Client randomly picks one instance and calls it
+
+ ##Screenshots of Terminals
+ <img width="1124" height="838" alt="image" src="https://github.com/user-attachments/assets/ebc87e50-9ad0-4be4-b8c4-2ddaaf788f8f" />
+
