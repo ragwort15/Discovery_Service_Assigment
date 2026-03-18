@@ -97,22 +97,18 @@ Security — mTLS encrypts all pod-to-pod communication automatically
 Observability — Envoy proxy collects metrics and traces on every request
 
 **How to run**
-_Step 1 — Enable Istio sidecar injection:_
+Step 1 — Enable Istio sidecar injection:
 
-bashistioctl install --set profile=demo -y
+istioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
 
-_Step 2 — Deploy to Kubernetes:_
-bashkubectl apply -f k8s/my-service.yaml
+Step 2 — Deploy to Kubernetes:
+kubectl apply -f k8s/my-service.yaml
 
-_Step 3 — Apply Istio routing:_
-bashkubectl apply -f k8s/istio-routing.yaml
-_Step 4 — Verify:_
-bashkubectl get pods              # both pods should show 2/2
-kubectl get virtualservice    # should show my-service
-kubectl get destinationrule   # should show my-service with ROUND_ROBIN
-```
+Step 3 — Apply Istio routing:
+kubectl apply -f k8s/istio-routing.yaml
 
+Step 4 — Verify:
 kubectl get pods              # both pods should show 2/2
 kubectl get virtualservice    # should show my-service
 kubectl get destinationrule   # should show my-service with ROUND_ROBIN
@@ -123,6 +119,7 @@ kubectl get destinationrule   # should show my-service with ROUND_ROBIN
 NAME                          READY   STATUS    RESTARTS   AGE
 my-service-69b6bd9569-hz7hq   2/2     Running   0          18m
 my-service-69b6bd9569-mvz6j   2/2     Running   0          18m
+
 
 
 
