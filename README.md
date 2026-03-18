@@ -63,5 +63,12 @@ Response: {'message': 'Hello from instance at port 8002!'}
 5. Client randomly picks one instance and calls it
 
  ##Screenshots of Terminals
+ 
  <img width="1124" height="838" alt="image" src="https://github.com/user-attachments/assets/ebc87e50-9ad0-4be4-b8c4-2ddaaf788f8f" />
+
+ <img width="1227" height="861" alt="image" src="https://github.com/user-attachments/assets/afaf833b-db20-423e-8018-
+  eb3a9b3bd5fd" />
+  <img width="1138" height="723" alt="image" src="https://github.com/user-attachments/assets/8d0d027a-1ff2-4d1c-959f-e3b8fe1cf0f5" />
+
+
 
