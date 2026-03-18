@@ -120,7 +120,6 @@ kubectl get destinationrule   # should show my-service with ROUND_ROBIN
 NAME                          READY   STATUS    RESTARTS   AGE
 my-service-69b6bd9569-hz7hq   2/2     Running   0          18m
 my-service-69b6bd9569-mvz6j   2/2     Running   0          18m
-<img width="1440" height="1524" alt="image" src="https://github.com/user-attachments/assets/d52fa61c-89db-4895-8d5f-fd5998b98e5c" />
 
 
 
