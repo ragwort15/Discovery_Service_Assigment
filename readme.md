@@ -136,6 +136,7 @@ my-service-69b6bd9569-mvz6j   2/2     Running   0          18m
 The `2/2` confirms both the Python app and Envoy sidecar are running in each pod.
 
 ---
+<img width="934" height="376" alt="image" src="https://github.com/user-attachments/assets/d7d9fa0c-1fdb-4dd2-a590-4a63f68a60c5" />
 
 
 
