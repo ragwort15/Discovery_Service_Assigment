@@ -79,6 +79,42 @@ Response: {'message': 'Hello from instance at port 8002!'}
 <img width="1416" height="853" alt="image" src="https://github.com/user-attachments/assets/94d56d11-3912-463a-9399-2f587cb523c6" />
 
 ## Service Mesh with Istio
+
+What is a Service Mesh?
+A service mesh is an infrastructure layer that handles service-to-service communication automatically — without changing any application code. Instead of your app managing traffic, security, and monitoring, the mesh handles it at the network level.
+How it works
+Every pod gets an Envoy sidecar proxy injected automatically by Istio. All traffic flows through this proxy, giving you routing control, encryption, and observability for free.
+Client → Envoy sidecar → Istio control plane
+                       → Pod 1 (Python app + Envoy)
+                       → Pod 2 (Python app + Envoy)
+The 2/2 in kubectl get pods confirms it — 1 is the Python app, 2 is the injected Envoy proxy.
+Difference from the core project
+Core projectWith IstioRuns onLocal machineKubernetes2 instancesStarted manuallyManaged by KubernetesLoad balancingPython random.choice()Istio ROUND_ROBIN at network levelDiscoveryPython registry (port 5001)Kubernetes DNS + IstioSecurityNonemTLS between every pod automaticallyTraffic controlNoneVirtualService (50/50 split, retries, timeouts)MonitoringNoneEnvoy metrics on every requestCrash recoveryManual restartKubernetes restarts automatically
+Benefits achieved
+
+Traffic routing — VirtualService splits traffic 50/50 across both instances with automatic retries
+Security — mTLS encrypts all pod-to-pod communication automatically
+Observability — Envoy proxy collects metrics and traces on every request
+
+How to run
+Step 1 — Enable Istio sidecar injection:
+bashistioctl install --set profile=demo -y
+kubectl label namespace default istio-injection=enabled
+Step 2 — Deploy to Kubernetes:
+bashkubectl apply -f k8s/my-service.yaml
+Step 3 — Apply Istio routing:
+bashkubectl apply -f k8s/istio-routing.yaml
+Step 4 — Verify:
+bashkubectl get pods              # both pods should show 2/2
+kubectl get virtualservice    # should show my-service
+kubectl get destinationrule   # should show my-service with ROUND_ROBIN
+```
+
+### Expected output
+```
+NAME                          READY   STATUS    RESTARTS   AGE
+my-service-69b6bd9569-hz7hq   2/2     Running   0          18m
+my-service-69b6bd9569-mvz6j   2/2     Running   0          18m
 <img width="1440" height="1524" alt="image" src="https://github.com/user-attachments/assets/d52fa61c-89db-4895-8d5f-fd5998b98e5c" />
 
 
