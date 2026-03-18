@@ -98,10 +98,13 @@ Observability — Envoy proxy collects metrics and traces on every request
 
 **How to run**
 _Step 1 — Enable Istio sidecar injection:_
+
 bashistioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
+
 _Step 2 — Deploy to Kubernetes:_
 bashkubectl apply -f k8s/my-service.yaml
+
 _Step 3 — Apply Istio routing:_
 bashkubectl apply -f k8s/istio-routing.yaml
 _Step 4 — Verify:_
