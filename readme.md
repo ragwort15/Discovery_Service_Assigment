@@ -140,7 +140,9 @@ The `2/2` confirms both the Python app and Envoy sidecar are running in each pod
 
 **Requirements:**
 brew install minikube
+
 brew install kubectl
+
 brew install istioctl
 
 minikube start --driver=docker
